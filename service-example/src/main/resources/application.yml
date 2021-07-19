@@ -2,7 +2,10 @@ spring:
   application:
     name: service-example
 
-eureka:
+#Sirve para mapear el dominio de la pc a localhost. Si no aparece una url fea, pero igual anda.
+#eureka:
+#  instance:
+#    hostname: localhost
   client:
     registerWithEureka: true
     serviceUrl:

@@ -23,4 +23,9 @@ public class ServiceExampleApplication {
 	public String pingMessage(){
 		return "Hello from " + instance;
 	}
+
+	@RequestMapping("/")
+	public String message(){
+		return "Root message from " + instance;
+	}
 }
