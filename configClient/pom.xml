@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.springCloud</groupId>
-	<artifactId>config-Server</artifactId>
+	<artifactId>configClient</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>config-Server</name>
-	<description>Demo project for SpringCloud (Spring Cloud Config Server)</description>
+	<name>configClient</name>
+	<description>Demo project for Spring Cloud (Config Client)</description>
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>2020.0.3</spring-cloud.version>
@@ -22,18 +22,29 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+
+
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-server</artifactId>
+			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
-		<!-- Lo dejo comentado porque si no no arranca, intenta conectarse con el discovery-server (eureka-server) de una. Sin importar que no este el annotation.
 
-		 -->
+		<!--La dependencia spring-boot-starter-web hizo que no se cancelara el registro en el discovery-server automaticamente. (No entiendo la razon, no habia error de compilacion
+			ni nada similar . Las annotations de @RestController las obtenia seguramente de otro starter dependency. Pero cuando levantaba el proyecto se registraba lo mas bien en el
+			discovery-server y automaticamente se cancelaba el registro y se caia la app.
+		-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-bootstrap</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
