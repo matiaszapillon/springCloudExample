@@ -34,7 +34,7 @@ public class ClientApplication {
 		RestTemplate restTemplate = restTemplateBuilder.build();
 		InstanceInfo instanceInfo = client.getNextServerFromEureka("service-example",false); //service-example is the name defined in application.yml from service-example project.
 		String baseUrl = instanceInfo.getHomePageUrl();
-		ResponseEntity<String> response = restTemplate.exchange(baseUrl + "ping", HttpMethod.GET, null, String.class);
+		ResponseEntity<String> response = restTemplate.exchange(baseUrl, HttpMethod.GET, null, String.class);
 		return response.getBody();
 	}
 

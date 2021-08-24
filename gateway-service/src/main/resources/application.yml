@@ -1,0 +1,27 @@
+server:
+    port: 8080
+spring:
+    application:
+        name: gateway-service
+    cloud:
+        gateway:
+            discovery:
+                locator:
+                    enabled: true
+            routes:
+                - id: goodbye-service
+                  uri: http://en1810157.endava.net:2222 # netflix eureka correspondent service # NO FUNCIONO Tira 500.
+                  predicates:
+                      - Path=/goodbye/** # how we will map the url to the target service
+                - id: hello-service
+                  uri: lb://hello-service # NO FUNCIONO. Tira 500.
+                  predicates:
+                      - Path=/hello/**
+
+eureka:
+    client:
+        register-with-eureka: true # register him self at eureka
+        fetch-registry: true # pull down a local copy of the registries
+        service-url:
+            defaultZone: http://localhost:8761/eureka # discovery service location
+

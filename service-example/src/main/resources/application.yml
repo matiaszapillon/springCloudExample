@@ -6,6 +6,7 @@ spring:
 #eureka:
 #  instance:
 #    hostname: localhost
+eureka:
   client:
     registerWithEureka: true
     serviceUrl:
