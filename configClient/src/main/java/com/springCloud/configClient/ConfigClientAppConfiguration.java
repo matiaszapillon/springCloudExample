@@ -4,7 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = "some") // El archivo se llama some.property por eso el 'prefix = some'.
+@ConfigurationProperties(prefix = "some") // The file name is 'some.property'. That's why prefix = "some".
 public class ConfigClientAppConfiguration {
 
     private String property;
